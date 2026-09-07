@@ -1,12 +1,8 @@
 # Facial Emotion Recognition
 
-A CNN based Facial Emotion Recognition web application built using:
+Facial Emotion Recognition using CNN and Streamlit.
 
-- TensorFlow
-- Streamlit
-- CNN
-
-## Supported Emotions
+## Emotions
 
 - Angry
 - Disgust
@@ -16,13 +12,8 @@ A CNN based Facial Emotion Recognition web application built using:
 - Sad
 - Surprise
 
-## Model Performance
-
-Validation Accuracy: 62.8%
-
 ## Run Locally
 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
-```
