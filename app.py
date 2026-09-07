@@ -21,6 +21,9 @@ Upload a face image and predict the emotion.
 """
 )
 
+st.subheader("Supported Emotions")
+st.write(", ".join(emotion.title() for emotion in CLASS_NAMES))
+
 uploaded_file = st.file_uploader(
     "Choose an image",
     type=["jpg", "jpeg", "png"]

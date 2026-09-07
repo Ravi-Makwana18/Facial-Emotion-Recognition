@@ -2,6 +2,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
+from pathlib import Path
 
 CLASS_NAMES = [
     "angry",
@@ -15,10 +16,21 @@ CLASS_NAMES = [
 
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model(
-        "fer_cnn.h5",
-        compile=False
-    )
+    dense_from_config = tf.keras.layers.Dense.from_config
+
+    def compatible_dense_from_config(config):
+        config = dict(config)
+        config.pop("quantization_config", None)
+        return dense_from_config(config)
+
+    tf.keras.layers.Dense.from_config = compatible_dense_from_config
+    try:
+        return tf.keras.models.load_model(
+            Path(__file__).with_name("fer_cnn.h5"),
+            compile=False
+        )
+    finally:
+        tf.keras.layers.Dense.from_config = dense_from_config
 
 model = load_model()
 
