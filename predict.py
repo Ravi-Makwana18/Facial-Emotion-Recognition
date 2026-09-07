@@ -16,7 +16,7 @@ CLASS_NAMES = [
 @st.cache_resource
 def load_model():
     return tf.keras.models.load_model(
-        "fer_cnn.keras",
+        "fer_cnn.h5",
         compile=False
     )
 
