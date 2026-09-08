@@ -2,6 +2,8 @@
 
 Facial Emotion Recognition using CNN and Streamlit.
 
+Link: https://facial-emotion-recognition-abc.streamlit.app/
+
 ## Emotions
 
 - Angry
